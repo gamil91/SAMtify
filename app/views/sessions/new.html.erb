@@ -1,5 +1,5 @@
- <h1>Login page</h1>
-
+ <h1>Welcome to SAMtify</h1>
+<h2> Log in to your account</h2>
 <%= form_with url:'/sessions', method: :post do |form| %>
     <%= form.label :username %>
     <%= form.text_field :username %>
@@ -7,4 +7,5 @@
     <%= form.password_field :password %>
     <%= form.submit "Login" %> 
 <% end %>
-<%=link_to 'Sign Up', signup_path%>
+<br/>
+Don't have an account? <%=link_to 'Sign Up', signup_path%> 

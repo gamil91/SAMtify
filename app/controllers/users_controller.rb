@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
+# before_action :require_login, only:[:show, :edit, :update, :destroy]
 before_action :get_user, only:[:show, :edit, :update, :destroy]
+
     def show
+        
     end
 
     def new
@@ -19,11 +22,20 @@ before_action :get_user, only:[:show, :edit, :update, :destroy]
 
     def edit
     end
-
+    
     def update
+        if @user.update(user_params)
+            flash[:success] = "Successfully updated!"
+            redirect_to user_path(@user)
+        else
+            render :edit
+        end
     end
 
     def destroy
+        @user.destroy
+        session.clear
+        redirect_to '/'
     end
 
     private
