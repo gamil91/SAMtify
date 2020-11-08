@@ -5,9 +5,11 @@ class PlaylistsController < ApplicationController
         @playlists = Playlist.all
     end
 
-    def show
+    def show        
+        @playlist = Playlist.find(params[:id])        
+        @songs = @playlist.playlist_songs.map {|ps| ps.song }    
     end
-
+    
     def new
         @playlist = Playlist.new
     end

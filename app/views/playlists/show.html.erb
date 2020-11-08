@@ -1,5 +1,10 @@
 <h1>Playlist: <%= @playlist.name %></h1>
 
+<p>Songs: <%= @songs.count %></p>
+<ol><% @songs.each do |song| %> 
+<li><%= link_to song.title, song %> - <%= song.artist.name %></li>
+<% end %>
+</ol>
 
 <button><%= link_to "Add Songs", new_playlist_song_path %></button>
 <br>
