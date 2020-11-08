@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
             flash[:success] = "Welcome, #{@user.username}"
             redirect_to @user
         else
-            flash[:danger] = "Incorrect credentials provided"
+            flash[:danger] = "Invalid Username or Password"
             redirect_to login_path
         end
     end
