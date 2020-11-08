@@ -1,7 +1,4 @@
 <%= form_for playlist do |f| %>
-    <% if @user %>
-        <%= hidden_field_tag :user_id, @user.id %>
-    <% end %>
     <% if playlist.errors.any? %>
        <% playlist.errors.full_messages.each do |m| %>
             <p class="danger"><%= m %></p>

@@ -1,5 +1,5 @@
 class ArtistsController < ApplicationController
-    before_action :require_login
+
     def index
         if params[:query]
             @artists = Artist.find_by_query(params[:query])

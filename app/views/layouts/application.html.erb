@@ -16,6 +16,10 @@
       <%=link_to 'Home', current_user %>
     <% end %>
 
+    <% flash.each do |k, v|  %>
+      <p class="<%= k %>"><%= v %></p>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

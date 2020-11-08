@@ -1,5 +1,4 @@
 class SongsController < ApplicationController
-    before_action :require_login
     
     def index
         if params[:query]

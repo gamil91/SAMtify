@@ -1,5 +1,4 @@
 class PlaylistsController < ApplicationController
-    before_action :require_login
     before_action :get_playlist, only: [:show, :edit, :update, :destroy]
 
     def index
@@ -13,11 +12,10 @@ class PlaylistsController < ApplicationController
     
     def new
         @playlist = Playlist.new
-        @user = User.find(params[:user_id])
     end
 
     def create
-        @playlist = Playlist.new(user_id: params[:user_id], name: params[:playlist][:name])
+        @playlist = Playlist.new(user_id: current_user.id, name: params[:playlist][:name])
         if @playlist.save
             redirect_to @playlist
         else
@@ -26,6 +24,9 @@ class PlaylistsController < ApplicationController
     end
 
     def edit
+        if !is_authorized?
+            not_authorized
+        end
     end
 
     def update
@@ -37,8 +38,12 @@ class PlaylistsController < ApplicationController
     end
 
     def destroy
-        @playlist.destroy
-        redirect_to playlists_path
+        if !is_authorized?
+            not_authorized
+        else
+            @playlist.destroy
+            redirect_to playlists_path
+        end
     end
 
     private
@@ -51,4 +56,12 @@ class PlaylistsController < ApplicationController
         params.require(:playlist).permit(:name, :user_id)
     end
 
+    def is_authorized?
+        @playlist.user == current_user
+    end
+
+    def not_authorized
+        redirect_to playlists_path
+        flash[:danger] = "You don't own this playlist!"
+    end
 end

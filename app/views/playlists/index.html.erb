@@ -1,9 +1,23 @@
 <h1> All Playlists </h1>
-
+<!--
 <ul>
 <% @playlists.each do |p| %>
-<li><%= link_to p.name, playlist_path(p) %></li>
+    <li><%= link_to "#{p.name} - #{p.user.name}", playlist_path(p) %></li>
 <% end %>
 </ul>
+-->
+
+<table>
+    <tr>
+        <th>Playlist</th>
+        <th>User</th>
+    </tr>
+    <% @playlists.each do |p| %>
+        <tr>
+            <td><%= link_to p.name, p %></td>
+            <td><%= p.user.name %></td>
+        </tr>
+    <% end %>
+</table>
 
 <button><%= link_to "Create a Playlist", new_playlist_path %></button>

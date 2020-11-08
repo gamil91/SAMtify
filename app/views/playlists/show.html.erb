@@ -2,7 +2,10 @@
 
 <p>Songs: <%= @songs.count %></p>
 <ol><% @songs.each do |song| %> 
-<li><%= link_to song.title, song %> - <%= song.artist.name %></li>
+    <li>
+        <%= link_to song.title, song %> - <%= song.artist.name %>
+        <%= button_to "Delete", PlaylistSong.find_by(song_id: song.id, playlist_id: @playlist.id), method: :delete, params: {playlist_id: @playlist.id} %>
+    </li>
 <% end %>
 </ol>
 
