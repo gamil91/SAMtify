@@ -1,0 +1,7 @@
+<h1><%= @playlist.name %></h1>
+<p>Songs: <%= @songs.count %></p>
+<ol>
+<% @songs.each do |song| %>
+    <li><%= link_to song.title, song %> - <%= song.artist.name %></li>
+<% end %>
+</ol>
