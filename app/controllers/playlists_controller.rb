@@ -1,4 +1,5 @@
 class PlaylistsController < ApplicationController
+    before_action :require_login
     before_action :get_playlist, only: [:show, :edit, :update, :destroy]
 
     def index
@@ -12,10 +13,11 @@ class PlaylistsController < ApplicationController
     
     def new
         @playlist = Playlist.new
+        @user = User.find(params[:user_id])
     end
 
     def create
-        @playlist = Playlist.new(playlist_params)
+        @playlist = Playlist.new(user_id: params[:user_id], name: params[:playlist][:name])
         if @playlist.save
             redirect_to @playlist
         else
@@ -27,7 +29,7 @@ class PlaylistsController < ApplicationController
     end
 
     def update
-        if @playlist.update(playlist_params)
+        if @playlist.update(name: params[:playlist][:name])
             redirect_to @playlist
         else 
             render :edit

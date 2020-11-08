@@ -3,8 +3,10 @@
 <h2>Here are your playlists!</h2>
 <ul>
 <%@user.playlists.each do |playlist|%>
-<li><%= playlist.name%></li>
+<li><%= link_to playlist.name, playlist %></li>
 <% end %>
 </ul>
 
-<%=button_to 'Create a new playlist!', new_playlist_path%>
+<%=button_to 'Create a new playlist!', new_playlist_path, method: :get, params: {user_id: @user.id} %>
+<%= button_to 'View all songs', songs_path, method: :get %>
+<%= button_to 'View all artists', artists_path, method: :get %>

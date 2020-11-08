@@ -1,5 +1,5 @@
 class PlaylistSongsController < ApplicationController
-
+    before_action :require_login
     def new
         @playlist_song = PlaylistSong.new
         @playlists = Playlist.all

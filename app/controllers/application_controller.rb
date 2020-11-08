@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
     def require_login
         if !logged_in?
-        redirect_to login_path
+            redirect_to login_path
         end
     end
 
@@ -15,6 +15,5 @@ class ApplicationController < ActionController::Base
     def logged_in?
         !!current_user
     end
-
 
 end

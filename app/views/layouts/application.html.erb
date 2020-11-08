@@ -12,8 +12,8 @@
   <body>
     <%if logged_in? %>
       <%=link_to 'Log Out', sessions_path, method: :delete%> || 
-      <%=link_to 'Settings', edit_user_path%> ||
-      <%=link_to 'Home', @user %>
+      <%=link_to 'Settings', edit_user_path(current_user.id)%> ||
+      <%=link_to 'Home', current_user %>
     <% end %>
 
     <%= yield %>
