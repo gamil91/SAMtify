@@ -1,0 +1,10 @@
+<h1>Songs</h1>
+
+<%= form_tag songs_path, method: :get do %>
+    <%= text_field_tag :query, params[:query] %>
+    <%= submit_tag "Search" %>
+<% end %>
+
+<% @songs.each do |song| %>
+    <p><%= link_to "#{song.title} - #{song.artist.name}", song %></p>
+<% end %>
