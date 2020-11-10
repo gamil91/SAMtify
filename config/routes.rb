@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/', to: 'sessions#new', as: 'login'
   post '/sessions', to: 'sessions#create', as: 'sessions'
   delete '/sessions', to: 'sessions#destroy' 
+  patch '/songs', to: 'songs#index', as: 'sort_songs'
 
   resources :songs do
     resources :playlist_songs, shallow: true

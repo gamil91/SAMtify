@@ -1,9 +1,14 @@
 <h1>Songs</h1>
 
 <%= form_tag songs_path, method: :get do %>
+    <%= hidden_field_tag :playlist_id, @playlist_id %>
     <%= text_field_tag :query, params[:query] %>
     <%= submit_tag "Search" %>
 <% end %>
+
+<%= button_to "Sort by popularity", sort_songs_path, method: :patch, params: {sort: "popularity", playlist_id: @playlist_id, query: @query} %>
+<%= button_to "Sort by name (A-Z)", sort_songs_path, method: :patch, params: {sort: "a-z", playlist_id: @playlist_id, query: @query} %>
+<%= button_to "Sort by name (Z-A)", sort_songs_path, method: :patch, params: {sort: "z-a", playlist_id: @playlist_id, query: @query} %>
 
 <% @songs.each do |song| %>
     <p><%= link_to "#{song.title} - #{song.artist.name}", song_path(id: song.id, playlist_id: @playlist_id) %></p>
