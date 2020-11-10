@@ -1,6 +1,7 @@
 
 <ul>
 <% if @user.errors.any?%>
+
 <% @user.errors.full_messages.each do |msg|%>
     <li class="danger" ><%= msg %></li>
     <%end%>
@@ -21,5 +22,6 @@
 <%=f.label :password_confirmation %><br/>
 <%=f.password_field :password_confirmation %><br/>
 <br/><br/>
+
 <%=f.submit%>
 <% end %>

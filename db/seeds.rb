@@ -20,3 +20,4 @@ end
 
 # adele.top_tracks(:US).first.preview_url
 # adele.albums.first.images
+
