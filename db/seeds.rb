@@ -1,19 +1,22 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+file = File.read("db/client_info.rb")
+info = file.split
+RSpotify.authenticate(info[0], info[1])
 
-15.times do 
-    Artist.create(name: Faker::Name.name)
+artist_arr = ["Adele", "Drake", "Ed Sheeran", "Lady Gaga", "Beyonce", "Taylor Swift"]
+
+artists = artist_arr.map do |a|
+    artist = RSpotify::Artist.search(a).first
+    artist.related_artists + [artist]
+end.flatten
+
+artists = artists.uniq{|a| a.name}
+
+artists.each do |artist|
+    artist_obj = Artist.create(name: artist.name)
+    artist.top_tracks(:US).each do |track|
+        Song.create(artist: artist_obj, title: track.name)
+    end
 end
 
-40.times do
-    Song.create(title: Faker::Hipster.words(number: rand(1..5)).join(" "), artist: Artist.all.sample)
-end
-
-3.times do 
-    Playlist.create(name: Faker::Hipster.words(number: rand(1..3)).join(" ").titleize, user: User.first)
-end
+# adele.top_tracks(:US).first.preview_url
+# adele.albums.first.images

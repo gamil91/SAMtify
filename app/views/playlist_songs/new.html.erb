@@ -1,8 +1,9 @@
 <h1>Add to Playlist</h1>
 <!--
 <% @song = Song.find(params[:song_id]) %>
-<% @playlists = Playlist.all %>
+<% @playlists = Playlist.select{|ps| ps.user == current_user} %>
 -->
+
 <p>Song: <%= @song.title %></p>
 <%= form_for @playlist_song, :url => { :action => "create" } do |f| %>
     <% if @playlist_song.errors.any? %>
@@ -10,7 +11,7 @@
             <p><%= msg %></p>
         <% end %>
     <% end %>
-    <%= hidden_field_tag :song_id, @song.id %>
+    <%= f.hidden_field :song_id %>
     <%= f.label :playlist %>
     <%= f.collection_select :playlist_id, @playlists, :id, :name %>
     <%= f.submit "Add" %>

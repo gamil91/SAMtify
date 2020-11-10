@@ -3,7 +3,6 @@ class UsersController < ApplicationController
     before_action :get_user, only:[:show, :edit, :update, :destroy]
 
     def show
-        
     end
 
     def new
@@ -45,7 +44,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-        params.require(:user).permit(:name, :username, :password)
+        params.require(:user).permit(:name, :username, :password, :password_confirmation)
     end
 
 end

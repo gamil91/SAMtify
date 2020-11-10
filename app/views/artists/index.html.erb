@@ -1,9 +1,10 @@
 <h1>Artists</h1>
-
 <%= form_tag artists_path, method: :get do %>
     <%= text_field_tag :query, params[:query] %>
     <%= submit_tag "Search" %>
 <% end %>
+
+<%=button_to "Sort by Alphabetically" , artists_path, method: :get, name: :sort%>
 
 <% @artists.each do |artist| %>
     <p><%= link_to artist.name, artist %></p>

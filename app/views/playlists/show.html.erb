@@ -9,9 +9,8 @@
 <% end %>
 </ol>
 
-<button><%= link_to "Add Songs", songs_path %></button>
+<%= button_to "Add Songs", songs_path, method: :get, params: {playlist_id: @playlist.id} %>
 <br>
 <button><%= link_to "Edit Playlist", edit_playlist_path(@playlist) %></button>
 <button><%= link_to "Delete Playlist", playlist_path(@playlist), method: :delete, data: {confirm: "Are you sure you want to delete this playlist?"} %></button>
 <br>
-<button><%= link_to "Show All Playlists", playlists_path %></button>

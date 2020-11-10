@@ -1,13 +1,18 @@
 class PlaylistSongsController < ApplicationController
 
     def new
-        @playlist_song = PlaylistSong.new
-        @playlists = Playlist.all
-        @song = Song.find(params[:song_id])
+        song_id = params[:song_id]
+        if song_id && @song = Song.find_by_id(song_id)
+            @playlist_song = @song.playlist_songs.build
+            @playlists = Playlist.select{|ps| ps.user == current_user}
+        else
+            redirect_to songs_path
+        end
     end
 
     def create
-        @playlist_song = PlaylistSong.new(playlist_id: params[:playlist_song][:playlist_id], song_id: params[:song_id])
+        @playlist_song = PlaylistSong.new(playlist_song_params)
+
         if !is_authorized?
             not_authorized
         else
@@ -32,7 +37,11 @@ class PlaylistSongsController < ApplicationController
 
     private
     def playlist_song_params
-        params.require(:playlist_song).permit(:playlist_id, :song_id)
+        if params[:playlist_song]
+            params.require(:playlist_song).permit(:playlist_id, :song_id)
+        else
+            params.permit(:playlist_id, :song_id)
+        end
     end
 
     def is_authorized?
