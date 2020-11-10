@@ -4,7 +4,7 @@ class PlaylistSongsController < ApplicationController
         song_id = params[:song_id]
         if song_id && @song = Song.find_by_id(song_id)
             @playlist_song = @song.playlist_songs.build
-            @playlists = Playlist.all
+            @playlists = Playlist.all.select {|pl| pl.user == current_user}
         else
             redirect_to songs_path
         end

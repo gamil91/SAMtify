@@ -15,9 +15,9 @@
     <% @playlists.each do |p| %>
         <tr>
             <td><%= link_to p.name, p %></td>
-            <td><%= p.user.name %></td>
+            <td><%= p.user.username %></td>
         </tr>
     <% end %>
 </table>
 
-<button><%= link_to "Create a Playlist", new_playlist_path %></button>
+<%= button_to "Create a Playlist", new_playlist_path %>

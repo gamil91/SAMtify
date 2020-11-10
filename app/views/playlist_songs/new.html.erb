@@ -1,7 +1,7 @@
 <h1>Add to Playlist</h1>
 <!--
 <% @song = Song.find(params[:song_id]) %>
-<% @playlists = Playlist.all %>
+<% @playlists = Playlist.all.select {|pl| pl.user == current_user} %>
 -->
 <p>Song: <%= @song.title %></p>
 <%= form_for @playlist_song, :url => { :action => "create" } do |f| %>
