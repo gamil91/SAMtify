@@ -12,12 +12,18 @@ end.flatten
 artists = artists.uniq{|a| a.name}
 
 artists.each do |artist|
-    artist_obj = Artist.create(name: artist.name)
+    artist_obj = Artist.create(name: artist.name, image: artist.albums.first.images[1]["url"])
     artist.top_tracks(:US).each do |track|
-        Song.create(artist: artist_obj, title: track.name)
+        if track.preview_url != nil
+            Song.create(artist: artist_obj, title: track.name, preview: track.preview_url)
+        end
     end
 end
 
-# adele.top_tracks(:US).first.preview_url
-# adele.albums.first.images
+Artist.all.each do |a|
+    if a.songs.length == 0
+        a.destroy
+    end
+end
+
 
