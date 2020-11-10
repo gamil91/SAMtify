@@ -10,16 +10,18 @@
   </head>
 
   <body>
-    <%if logged_in? %>
-      <%=link_to 'Log Out', sessions_path, method: :delete%> || 
-      <%=link_to 'Settings', edit_user_path(current_user.id)%> ||
-      <%=link_to 'Home', current_user %>
-    <% end %>
+  
+      <%if logged_in? %>
+        <%=link_to 'Log Out', sessions_path, method: :delete%> || 
+        <%=link_to 'Settings', edit_user_path(current_user.id)%> ||
+        <%=link_to 'Home', current_user %>
+      <% end %>
 
-    <% flash.each do |k, v|  %>
-      <p class="<%= k %>"><%= v %></p>
-    <% end %>
+      <% flash.each do |k, v|  %>
+        <p class="<%= k %>"><%= v %></p>
+      <% end %>
 
     <%= yield %>
+    
   </body>
 </html>

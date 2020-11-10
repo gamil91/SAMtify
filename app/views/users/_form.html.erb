@@ -1,23 +1,27 @@
+
 <ul>
 <% if @user.errors.any?%>
-<%= @user.errors.full_messages.each do |msg|%>
+
+<% @user.errors.full_messages.each do |msg|%>
     <li class="danger" ><%= msg %></li>
     <%end%>
 <%end%>
 </ul>
 
+
 <%=form_for @user do |f|%>
-<%=f.label :name%>
-<%=f.text_field :name%>
+<%=f.label :name%><br/>
+<%=f.text_field :name%><br/>
 <br>
-<%=f.label :username%>
-<%=f.text_field :username%>
+<%=f.label :username%><br/>
+<%=f.text_field :username%><br/>
 <br>
-<%=f.label :password%>
-<%=f.password_field :password%>
+<%=f.label :password%><br/>
+<%=f.password_field :password%><br/>
 <br>
-<%=f.label :password_confirmation %>
-<%=f.password_field :password_confirmation %>
-<br>
+<%=f.label :password_confirmation %><br/>
+<%=f.password_field :password_confirmation %><br/>
+<br/><br/>
+
 <%=f.submit%>
 <% end %>
