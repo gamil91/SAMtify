@@ -7,7 +7,9 @@ artist_arr = ["Adele", "Drake", "Ed Sheeran", "Lady Gaga", "Beyonce", "Taylor Sw
 artists = artist_arr.map do |a|
     artist = RSpotify::Artist.search(a).first
     artist.related_artists + [artist]
-end.flatten.uniq
+end.flatten
+
+artists = artists.uniq{|a| a.name}
 
 artists.each do |artist|
     artist_obj = Artist.create(name: artist.name)
@@ -15,3 +17,7 @@ artists.each do |artist|
         Song.create(artist: artist_obj, title: track.name)
     end
 end
+
+# adele.top_tracks(:US).first.preview_url
+# adele.albums.first.images
+
