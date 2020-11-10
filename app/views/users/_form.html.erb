@@ -1,7 +1,7 @@
 <ul>
 <% if @user.errors.any?%>
 <%= @user.errors.full_messages.each do |msg|%>
-    <li><%= msg%></li>
+    <li class="danger" ><%= msg %></li>
     <%end%>
 <%end%>
 </ul>
@@ -9,9 +9,15 @@
 <%=form_for @user do |f|%>
 <%=f.label :name%>
 <%=f.text_field :name%>
+<br>
 <%=f.label :username%>
 <%=f.text_field :username%>
+<br>
 <%=f.label :password%>
 <%=f.password_field :password%>
+<br>
+<%=f.label :password_confirmation %>
+<%=f.password_field :password_confirmation %>
+<br>
 <%=f.submit%>
 <% end %>
