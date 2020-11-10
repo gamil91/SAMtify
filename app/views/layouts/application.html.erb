@@ -10,12 +10,15 @@
   </head>
 
   <body>
-  
+      <ul class="nav">
       <%if logged_in? %>
-        <%=link_to 'Log Out', sessions_path, method: :delete%> || 
-        <%=link_to 'Settings', edit_user_path(current_user.id)%> ||
-        <%=link_to 'Home', current_user %>
+        <li class="nav_select"><%=link_to 'Log Out', sessions_path, method: :delete%></li>
+        <li class="nav_select"><%=link_to 'Settings', edit_user_path(current_user.id)%></li>
+        <li class="nav_select"><%=link_to 'Home', current_user %></li>
+        <li class="nav_select"><%=link_to 'View All Artists', artists_path %></li>
+        <li class="nav_select"><%=link_to 'View All Songs', songs_path %> </li>
       <% end %>
+      </ul>
 
       <% flash.each do |k, v|  %>
         <p class="<%= k %>"><%= v %></p>
