@@ -10,4 +10,14 @@ Rails.application.routes.draw do
   post '/sessions', to: 'sessions#create', as: 'sessions'
   delete '/sessions', to: 'sessions#destroy' 
 
+  resources :songs do
+    resources :playlist_songs, shallow: true
+  end
+
+  resources :playlists do
+    resources :songs do
+      resources :playlist_songs, shallow: true
+    end
+  end
+
 end

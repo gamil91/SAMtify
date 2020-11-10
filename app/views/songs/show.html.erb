@@ -1,6 +1,10 @@
 <h1><%= @song.title %></h1>
 <h3><%= link_to @song.artist.name, @song.artist %></h3>
 
-<%= button_to "Add to Playlist", new_playlist_song_path, method: :get, params: { song_id: @song.id } %>
+<% if @playlist_id %>
+    <%= button_to "Add to Playlist", "/playlists/#{@playlist_id}/songs/#{@song.id}/playlist_songs", method: :post %>
+<% else %>
+    <%= button_to "Add to Playlist", new_song_playlist_song_path(@song.id), method: :get%>
+<% end %>
 <br>
 <%= button_to "View All Songs", songs_path, method: :get %>
