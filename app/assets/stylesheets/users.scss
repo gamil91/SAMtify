@@ -1,7 +1,11 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-.danger {
-    color: red;
+
+/* user show & home page */
+#user-playlists {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
 }
 

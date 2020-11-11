@@ -1,14 +1,26 @@
-<h1>Welcome, <%= current_user.name %></h1>
+<h1>Welcome, <%= current_user.name %>!</h1>
 
-<h2>Here are your playlists!</h2>
+<br><br>
+<div id="user-playlists">
+    <div>
+        <h2>My Playlists</h2>
+        <% current_user.playlists.each do |playlist| %>
+            <div class="playlist-text"><%= link_to playlist.name, playlist %></div>
+        <% end %>
+        <br>
+    </div>
+    <div>
+        <h2>Favorites</h2>
+        <% current_user.favorites.each do |favorite| %>
+            <div class="playlist-text"><%= link_to favorite.playlist.name, favorite.playlist %></div>
+        <% end %>
+        <br>
+    </div>
 
-    <%current_user.playlists.each do |playlist|%>
-    <p class="song_text"><%= link_to playlist.name, playlist %></p>
-    <% end %>
-    
-
-<br/>
-<div class="button">
-<%= button_to 'Create a New Playlist!', new_playlist_path, method: :get %><br/>
-<%= button_to "Show All Playlists", playlists_path, method: :get %>
+    <div class="button">
+        <%= button_to 'Create a New Playlist', new_playlist_path, method: :get %><br/>
+    </div>
+    <div class="button">
+        <%= button_to "Show All Playlists", playlists_path, method: :get %>
+    </div>
 </div>
