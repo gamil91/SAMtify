@@ -17,7 +17,10 @@
 <div class="grid">
     <% @songs.each do |song| %>
         <div>
-            <a href= <%="/songs/#{song.id}"%>><img src="<%=song.image%>" alt="<%=song.title%>" style="width:300px;height:300px;"></a>
+            <%= form_tag song_path(song), method: :get do  %>
+                <%= hidden_field_tag :playlist_id, @playlist_id %>
+                <%= image_submit_tag song.image %>
+            <% end %>
             <p><%= link_to "#{song.title}<br>#{song.artist.name}".html_safe, song_path(id: song.id, playlist_id: @playlist_id) %><p>
             <br>
         </div>

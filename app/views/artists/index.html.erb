@@ -17,7 +17,9 @@
 <div class="grid">
     <% @artists.each do |artist| %>
         <div> 
-            <a href= <%="/artists/#{artist.id}"%>><img src="<%=artist.image%>" alt="<%=artist.name%>" style="width:300px;height:300px;"></a>
+            <%= form_tag artist_path(artist), method: :get do  %>
+                <%= image_submit_tag artist.image %>
+            <% end %>
             <p><%= link_to artist.name, artist %></p>
             <br>
         </div>

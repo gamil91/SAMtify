@@ -10,14 +10,12 @@
         <tr class="playlist-text">
             <td><%= link_to p.name, p %></td>
             <td><%= p.user.username %></td>
-            <td>
-                <% if p.user != current_user %>
-                    <% favorite = current_user.favorites.find {|fav| fav.playlist == p} %>
-                    <% if favorite %>
-                        <%= button_to "Unfavorite", favorite, method: :delete %>
-                    <% else %>
-                        <%= button_to "Favorite", favorites_path, method: :post, params: {playlist_id: p.id} %>
-                    <% end %>
+            <td class="favorite">
+                <% favorite = current_user.favorites.find {|fav| fav.playlist == p} %>
+                <% if favorite %>
+                    <%= button_to "Unfavorite", favorite, method: :delete %>
+                <% else %>
+                    <%= button_to "Favorite", favorites_path, method: :post, params: {playlist_id: p.id} %>
                 <% end %>
             </td>
         </tr>

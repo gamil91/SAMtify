@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
-
+ 
 /* general formatting */
 body {
     background-color: #282828;
@@ -41,6 +41,11 @@ h2{
     text-align: center;
 }
 
+.grid input[type="image"]{
+    background: none;
+    border: none;
+}
+
 /* links */
 a:link{
     color: #DEF2F1;
@@ -53,7 +58,7 @@ a:visited{
 }
 
 a:hover{
-    color: #FFAE42;
+    color: #C99B2D;
     text-decoration: none;
 }
 
@@ -99,7 +104,7 @@ form input[type="submit"]{
 }
 
 form input:hover[type="submit"]{
-    color:  #FFAE42;
+    color: #C99B2D;
 }
 /*
 form input[type="password"]{
@@ -132,7 +137,7 @@ form input[type="text"]{
 }
 
 .sort .button_to input[type="submit"]:hover{
-    background-color: #FFAE42
+    background-color: #C99B2D;
 }
 
 /* search fields */
@@ -156,6 +161,9 @@ th, td{
 
 /* errors/warnings */
 .danger {
-    color: red;
+    color:  #C99B2D;
 }
 
+.success { 
+    color: #3AAFA9;
+}

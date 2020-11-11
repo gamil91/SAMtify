@@ -1,14 +1,12 @@
 <h1><%= @artist.name %></h1>
-
+<br>
 <div id="artist-show">
-<img src="<%=@artist.image%>" alt="<%=@artist.name%>" style="width:300px;height:300px;">
-
-<div id="pad">
-<h3>Songs: <%= @songs.count %></h3>
-<ul>
+    <img src="<%=@artist.image%>" alt="<%=@artist.name%>" style="width:300px;height:300px;">
+    <br><br>
+    <!--<div id="pad">
+    <h3>Songs: <%= @songs.count %></h3>-->
     <% @songs.each do |song| %>
-        <li><%= link_to song.title, song %></li>
+        <p><%= link_to song.title, song %></p>
     <% end %>
-</ul>
-</div>
+    <!--</div>-->
 </div>
