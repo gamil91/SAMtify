@@ -2,13 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.danger {
-    color: red ;
+#audio{
+    width:100px;
+    height: 20px;
 }
 
-.success { 
-    color: green ;
+table{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
+
 
 #audio{
     width:100px;
@@ -33,4 +37,16 @@
 
 .plbutton {
     grid-row: 1;
+
+.favorite input[type="submit"]{
+    width: 125px;
+    border-radius: 35px;
+    background-color: #3AAFA9;
+    color: white
+}
+
+.favorite input[type="submit"]:hover{
+    background-color: #C99B2D;
+    color: white;
+
 }

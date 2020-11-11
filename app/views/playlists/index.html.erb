@@ -1,23 +1,27 @@
 <h1> All Playlists </h1>
-<!--
-<ul>
-<% @playlists.each do |p| %>
-    <li><%= link_to "#{p.name} - #{p.user.name}", playlist_path(p) %></li>
-<% end %>
-</ul>
--->
-
+<br>
 <table>
     <tr>
         <th>Playlist</th>
         <th>User</th>
+        <th></th>
     </tr>
     <% @playlists.each do |p| %>
-        <tr>
+        <tr class="playlist-text">
             <td><%= link_to p.name, p %></td>
             <td><%= p.user.username %></td>
+            <td class="favorite">
+                <% favorite = current_user.favorites.find {|fav| fav.playlist == p} %>
+                <% if favorite %>
+                    <%= button_to "Unfavorite", favorite, method: :delete %>
+                <% else %>
+                    <%= button_to "Favorite", favorites_path, method: :post, params: {playlist_id: p.id} %>
+                <% end %>
+            </td>
         </tr>
     <% end %>
 </table>
-
-<%= button_to "Create a Playlist", new_playlist_path %>
+<br>
+<div class="button">
+    <%= button_to "Create a Playlist", new_playlist_path, method: :get %>
+</div>

@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  resources :favorites
   resources :playlist_songs
   resources :songs
   resources :artists
   resources :playlists
   resources :users
+  resources :favorites, only: [:create, :delete]
 
   get '/signup', to: 'users#new', as: 'signup'
   get '/', to: 'sessions#new', as: 'login'
