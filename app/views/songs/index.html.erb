@@ -6,9 +6,11 @@
     <%= submit_tag "Search" %>
 <% end %>
 
+<div class="button">
 <%= button_to "Sort by popularity", sort_songs_path, method: :patch, params: {sort: "popularity", playlist_id: @playlist_id, query: @query} %>
 <%= button_to "Sort by name (A-Z)", sort_songs_path, method: :patch, params: {sort: "a-z", playlist_id: @playlist_id, query: @query} %>
 <%= button_to "Sort by name (Z-A)", sort_songs_path, method: :patch, params: {sort: "z-a", playlist_id: @playlist_id, query: @query} %>
+</div>
 
 <% @songs.each do |song| %>
     <p><%= link_to "#{song.title} - #{song.artist.name}", song_path(id: song.id, playlist_id: @playlist_id) %></p>

@@ -5,13 +5,11 @@
   <source src="<%=@song.preview%>" type="audio/ogg">
   Your browser does not support the audio tag.
 </audio>
-
+<br>
+<br>
 <% if @playlist_id %>
     <%= button_to "Add to Playlist", "/playlists/#{@playlist_id}/songs/#{@song.id}/playlist_songs", method: :post %>
 <% else %>
     <%= button_to "Add to Playlist", new_song_playlist_song_path(@song.id), method: :get%>
 <% end %>
-<br>
-<%= button_to "View All Songs", songs_path, method: :get %>
-
 
