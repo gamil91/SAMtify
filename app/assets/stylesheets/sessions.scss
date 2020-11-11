@@ -2,3 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+.login_page {
+    display:grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    
+}
+
+.greeting {
+    grid-column: 2/3;
+    grid-row:1;
+}
+
+.login_form{
+    grid-column: 1/4;
+    justify-self: center;
+    background: #17252a;
+    padding: 1em;
+    border-radius: 15px;
+}
+
