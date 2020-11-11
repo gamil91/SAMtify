@@ -5,14 +5,14 @@
     <div>
         <h2>My Playlists</h2>
         <% current_user.playlists.each do |playlist| %>
-            <p class="playlist-text"><%= link_to playlist.name, playlist %></p>
+            <div class="playlist-text"><%= link_to playlist.name, playlist %></div>
         <% end %>
         <br>
     </div>
     <div>
         <h2>Favorites</h2>
         <% current_user.favorites.each do |favorite| %>
-            <p class="playlist-text"><%= link_to favorite.playlist.name, favorite.playlist %></p>
+            <div class="playlist-text"><%= link_to favorite.playlist.name, favorite.playlist %></div>
         <% end %>
         <br>
     </div>

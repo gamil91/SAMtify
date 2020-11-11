@@ -107,9 +107,6 @@ form input:hover[type="submit"]{
     color: #C99B2D;
 }
 
-.favorite input[type="submit"]{
-    width: 125px;
-}
 /*
 form input[type="password"]{
     padding: 20px;
