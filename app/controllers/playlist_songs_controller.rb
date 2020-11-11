@@ -29,7 +29,7 @@ class PlaylistSongsController < ApplicationController
         if !is_authorized?
             not_authorized
         else
-            @playlist = Playlist.find(params[:playlist_id])
+            @playlist = @playlist_song.playlist
             @playlist_song.destroy
             redirect_to @playlist
         end

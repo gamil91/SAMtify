@@ -1,32 +1,24 @@
-<h1>Welcome, <%= current_user.name %></h1>
+<h1>Welcome, <%= current_user.name %>!</h1>
 
-
+<br><br>
 <div id="user-playlists">
     <div>
-        <% if current_user.playlists.count == 0 %>
-            <h2>You have no playlists!</h2>
-        <% else %>
-            <h2>Here are your playlists!</h2>
-            <% current_user.playlists.each do |playlist| %>
-                <p class="playlist-text"><%= link_to playlist.name, playlist %></p>
-            <% end %>
+        <h2>My Playlists</h2>
+        <% current_user.playlists.each do |playlist| %>
+            <p class="playlist-text"><%= link_to playlist.name, playlist %></p>
         <% end %>
         <br>
     </div>
     <div>
-        <% if current_user.favorites.count == 0 %>
-            <h2>You have no favorites!</h2>
-        <% else %>
-            <h2>Here are your favorites!</h2>
-            <% current_user.favorites.each do |favorite| %>
-                <p class="playlist-text"><%= link_to favorite.playlist.name, favorite.playlist %></p>
-            <% end %>
+        <h2>Favorites</h2>
+        <% current_user.favorites.each do |favorite| %>
+            <p class="playlist-text"><%= link_to favorite.playlist.name, favorite.playlist %></p>
         <% end %>
         <br>
     </div>
 
     <div class="button">
-        <%= button_to 'Create a New Playlist!', new_playlist_path, method: :get %><br/>
+        <%= button_to 'Create a New Playlist', new_playlist_path, method: :get %><br/>
     </div>
     <div class="button">
         <%= button_to "Show All Playlists", playlists_path, method: :get %>
