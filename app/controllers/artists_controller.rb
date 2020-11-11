@@ -8,6 +8,14 @@ class ArtistsController < ApplicationController
         else
             @artists = Artist.all
         end
+
+        if params[:sort] == "popularity"
+            @artists = @artists.sort_by {|artist| artist.num_playlists}.reverse
+        elsif params[:sort] == "a-z"
+            @artists = @artists.sort_by {|artist| artist.name}
+        elsif params[:sort] == "z-a"
+            @artists = @artists.sort_by {|artist| artist.name}.reverse
+        end
     end
 
     def show

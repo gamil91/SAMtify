@@ -4,7 +4,9 @@
     <%= submit_tag "Search" %>
 <% end %>
 
-<%=button_to "Sort by Alphabetically" , artists_path, method: :get, name: :sort%>
+<%= button_to "Sort by popularity", sort_artists_path, method: :patch, params: {sort: "popularity", query: @query} %>
+<%= button_to "Sort by name (A-Z)", sort_artists_path, method: :patch, params: {sort: "a-z", query: @query} %>
+<%= button_to "Sort by name (Z-A)", sort_artists_path, method: :patch, params: {sort: "z-a", query: @query} %>
 
 <% @artists.each do |artist| %>
     <p><%= link_to artist.name, artist %></p>
