@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post '/sessions', to: 'sessions#create', as: 'sessions'
   delete '/sessions', to: 'sessions#destroy' 
   patch '/songs', to: 'songs#index', as: 'sort_songs'
+  patch '/artists', to: 'artists#index', as: 'sort_artists'
 
   resources :songs do
     resources :playlist_songs, shallow: true
