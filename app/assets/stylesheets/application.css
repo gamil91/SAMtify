@@ -25,7 +25,8 @@ body {
     padding-top: 40px;
 }
 
-h1{ /* Header Properties */
+/* Header Properties */
+h1{ 
     color: #3AAFA9;
     text-align: center;
     font-size: 60px;
@@ -38,10 +39,17 @@ h1{ /* Header Properties */
 
 a:link{
     color: #DEF2F1;
+    text-decoration: none;
 }
 
 a:visited{
     color: #DEF2F1;
+    text-decoration: none;
+}
+
+a:hover{
+    color: #FFAE42;
+    text-decoration: none;
 }
 
 .nav{
@@ -63,14 +71,26 @@ a:visited{
     font-size: 20px;  
 }
 
-form input[type="submit"]{
-    padding: 20px;
+.playlist-text{
+    font-size: 25px; 
+}
+
+form input{
+    padding: 15px;
     color: #3AAFA9;
     font-weight: bold;
     font-size: large;
     background: #DEF2F1;
 }
 
+form input[type="submit"]{
+    width: 240px;
+}
+
+form input:hover[type="submit"]{
+    color:  #FFAE42;
+}
+/*
 form input[type="password"]{
     padding: 20px;
     color: #3AAFA9;
@@ -83,6 +103,9 @@ form input[type="text"]{
     padding: 20px;
     font-size: large;
 }
+*/
+
+
 
 .button{
     display: flex;

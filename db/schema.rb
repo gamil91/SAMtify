@@ -10,13 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_06_191947) do
+ActiveRecord::Schema.define(version: 2020_11_11_051415) do
 
   create_table "artists", force: :cascade do |t|
     t.string "name"
     t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "playlist_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["playlist_id"], name: "index_favorites_on_playlist_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "playlist_songs", force: :cascade do |t|
@@ -53,6 +62,8 @@ ActiveRecord::Schema.define(version: 2020_11_06_191947) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "favorites", "playlists"
+  add_foreign_key "favorites", "users"
   add_foreign_key "playlist_songs", "playlists"
   add_foreign_key "playlist_songs", "songs"
   add_foreign_key "playlists", "users"
