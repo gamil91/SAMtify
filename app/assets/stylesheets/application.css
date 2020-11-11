@@ -52,3 +52,31 @@ a:visited{
     display: inline;
     padding: 10px;
 }
+
+.song_text{
+    font-size: 20px;  
+}
+
+form input[type="submit"]{
+    padding: 8px;
+    color: #3AAFA9;
+    font-weight: bold;
+    background: #DEF2F1;
+}
+
+.button{
+    display: flex;
+}
+
+table, td{
+    border-collapse: collapse;
+}
+
+th, td{
+    padding: 10px;
+}
+
+#audio{
+    width:100px;
+    height: 20px;
+}

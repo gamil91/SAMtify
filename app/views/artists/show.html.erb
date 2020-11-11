@@ -1,12 +1,14 @@
 <h1><%= @artist.name %></h1>
 
-<img src="<%=@artist.image%>" alt="<%=@artist.name%>" style="width:200px;height:200px;">
+<div class="show">
+<img src="<%=@artist.image%>" alt="<%=@artist.name%>" style="width:300px;height:300px;">
 
-
-<p>Songs: <%= @songs.count %></p>
+<div>
+<h3>Songs: <%= @songs.count %></h3>
 <ul>
     <% @songs.each do |song| %>
         <li><%= link_to song.title, song %></li>
     <% end %>
 </ul>
-<%= button_to "View All Artists", artists_path, method: :get %>
+</div>
+</div>

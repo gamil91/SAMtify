@@ -12,11 +12,12 @@
   <body>
       <ul class="nav">
       <%if logged_in? %>
-        <li class="nav_select"><%=link_to 'Log Out', sessions_path, method: :delete%></li>
-        <li class="nav_select"><%=link_to 'Settings', edit_user_path(current_user.id)%></li>
         <li class="nav_select"><%=link_to 'Home', current_user %></li>
-        <li class="nav_select"><%=link_to 'View All Artists', artists_path %></li>
-        <li class="nav_select"><%=link_to 'View All Songs', songs_path %> </li>
+        <li class="nav_select"><%=link_to 'All Artists', artists_path %></li>
+        <li class="nav_select"><%=link_to 'All Songs', songs_path %> </li>
+        <li class="nav_select"><%=link_to "All Playlists", playlists_path %></li>
+        <li class="nav_select"><%=link_to 'Settings', edit_user_path(current_user.id)%></li>
+        <li class="nav_select"><%=link_to 'Log Out', sessions_path, method: :delete%></li>
       <% end %>
       </ul>
 

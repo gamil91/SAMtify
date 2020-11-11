@@ -1,19 +1,31 @@
 <h1><%= @playlist.name %></h1>
 
 <p>Songs: <%= @songs.count %></p>
-<ol><% @songs.each do |song| %> 
-    <li>
-        <%= link_to song.title, song %> - <%= song.artist.name %>
-        <% if @playlist.user == current_user %>
-            <%= button_to "Delete", PlaylistSong.find_by(song_id: song.id, playlist_id: @playlist.id), method: :delete, params: {playlist_id: @playlist.id} %>
-        <% end %>
-    </li>
+<table class="song_text">
+<tr>
+    <th> Song </th>
+    <th> Artist </th>
+    <th> Play </th>
+    <th> </th>
+</tr>
+    <% @songs.each do |song| %> 
+    <tr>
+        <td><%= link_to song.title, song %></td>
+        <td><%= song.artist.name %></td>
+        <td><audio controls id="audio" >
+        <source src="<%=song.preview%>" type="audio/ogg">
+        Your browser does not support the audio tag.
+        </audio></td>
+        <td><% if @playlist.user == current_user %>
+            <%= link_to "Delete", PlaylistSong.find_by(song_id: song.id, playlist_id: @playlist.id), method: :delete, params: {playlist_id: @playlist.id} %>
+        <% end %></td>
+    </tr>
 <% end %>
-</ol>
-
-<%= button_to "Add Songs", songs_path, method: :get, params: {playlist_id: @playlist.id} %>
+</table>
+<br>
+<div class="button">
+<%= button_to "Add Songs", songs_path, method: :get, params: {playlist_id: @playlist.id} %><br>
 <% if @playlist.user == current_user %>
     <%= button_to "Edit Playlist", edit_playlist_path(@playlist), method: :get %>
-    <%= button_to "Delete Playlist", playlist_path(@playlist), method: :delete, data: {confirm: "Are you sure you want to delete this playlist?"} %>
 <% end %>
-<%= button_to "Show All Playlists", playlists_path, method: :get %>
+</div>
