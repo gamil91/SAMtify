@@ -1,9 +1,9 @@
 <h1><%= @artist.name %></h1>
 
-<div class="show">
+<div class="img">
 <img src="<%=@artist.image%>" alt="<%=@artist.name%>" style="width:300px;height:300px;">
 
-<div>
+<div id="pad">
 <h3>Songs: <%= @songs.count %></h3>
 <ul>
     <% @songs.each do |song| %>

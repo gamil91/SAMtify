@@ -7,7 +7,6 @@
 <%end%>
 </ul>
 
-
 <%=form_for @user do |f|%>
 <%=f.label :name%><br/>
 <%=f.text_field :name%><br/>
@@ -19,8 +18,11 @@
 <%=f.password_field :password%><br/>
 <br>
 <%=f.label :password_confirmation %><br/>
-<%=f.password_field :password_confirmation %><br/>
-<br/><br/>
+<%=f.password_field :password_confirmation %>
 
+<br/>
+<br/><br/>
+<div id="update_btn">
 <%=f.submit%>
+</div>
 <% end %>

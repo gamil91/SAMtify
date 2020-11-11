@@ -18,16 +18,22 @@
 body {
     background-color: #282828;
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: x-large;
     padding-left: 40px;
     padding-right: 40px;
     padding-top: 40px;
 }
 
-h1{
+h1{ /* Header Properties */
     color: #3AAFA9;
     text-align: center;
-    font-size: 40px;
+    font-size: 60px;
+}
+
+.search{
+    margin: auto;
+    text-align: center;
 }
 
 a:link{
@@ -58,25 +64,37 @@ a:visited{
 }
 
 form input[type="submit"]{
-    padding: 8px;
+    padding: 20px;
     color: #3AAFA9;
     font-weight: bold;
+    font-size: large;
     background: #DEF2F1;
+}
+
+form input[type="password"]{
+    padding: 20px;
+    color: #3AAFA9;
+    font-weight: bold;
+    font-size: large;
+    background: #DEF2F1;
+}
+
+form input[type="text"]{
+    padding: 20px;
+    font-size: large;
 }
 
 .button{
     display: flex;
+    justify-content: center;
 }
 
-table, td{
-    border-collapse: collapse;
+#update_btn{
+    display: flex;
 }
 
 th, td{
     padding: 10px;
 }
 
-#audio{
-    width:100px;
-    height: 20px;
-}
+
