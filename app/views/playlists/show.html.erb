@@ -24,8 +24,8 @@
 </table>
 <br>
 <div class="button">
-<%= button_to "Add Songs", songs_path, method: :get, params: {playlist_id: @playlist.id} %><br>
 <% if @playlist.user == current_user %>
+    <%= button_to "Add Songs", songs_path, method: :get, params: {playlist_id: @playlist.id} %><br>
     <%= button_to "Edit Playlist", edit_playlist_path(@playlist), method: :get %>
 <% end %>
 </div>
