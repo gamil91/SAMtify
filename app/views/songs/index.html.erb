@@ -21,7 +21,7 @@
                 <%= hidden_field_tag :playlist_id, @playlist_id %>
                 <%= image_submit_tag song.image %>
             <% end %>
-            <p><%= link_to "#{song.title}<br>#{song.artist.name}".html_safe, song_path(id: song.id, playlist_id: @playlist_id) %><p>
+            <%= link_to "<p id=\"songTitle\">#{song.title}</p><p id=\"artistName\">#{song.artist.name}</p>".html_safe, song_path(id: song.id, playlist_id: @playlist_id) %>
             <br>
         </div>
     <% end %>
