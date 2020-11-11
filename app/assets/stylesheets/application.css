@@ -30,9 +30,14 @@ h1{
     font-size: 60px;
 }
 
-/* search fields */
-.search{
-    margin: auto;
+h2{
+    text-align: center;
+}
+
+/* grids */
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     text-align: center;
 }
 
@@ -86,6 +91,7 @@ form input{
     font-weight: bold;
     font-size: large;
     background: #DEF2F1;
+    border-radius: 5px;
 }
 
 form input[type="submit"]{
@@ -114,6 +120,33 @@ form input[type="text"]{
 .button{
     display: flex;
     justify-content: center;
+}
+
+.button .button_to{
+    padding: 2px;
+}
+
+.sort .button_to input[type="submit"]{
+    background-color: #3AAFA9;
+    color: white;
+}
+
+.sort .button_to input[type="submit"]:hover{
+    background-color: #FFAE42
+}
+
+/* search fields */
+.search{
+    margin: auto;
+    text-align: center;
+}
+
+.search input[type="text"]{
+    width: 40%;
+}
+
+.search input[type="submit"]{
+    width: 150px;
 }
 
 /* tables */

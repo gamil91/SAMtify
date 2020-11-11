@@ -1,17 +1,25 @@
 <h1>Songs</h1>
 
-<%= form_tag songs_path, method: :get do %>
-    <%= hidden_field_tag :playlist_id, @playlist_id %>
-    <%= text_field_tag :query, params[:query], placeholder: "Search by Song" %>
-    <%= submit_tag "Search" %>
-<% end %>
-
-<div class="button">
-<%= button_to "Sort by popularity", sort_songs_path, method: :patch, params: {sort: "popularity", playlist_id: @playlist_id, query: @query} %>
-<%= button_to "Sort by name (A-Z)", sort_songs_path, method: :patch, params: {sort: "a-z", playlist_id: @playlist_id, query: @query} %>
-<%= button_to "Sort by name (Z-A)", sort_songs_path, method: :patch, params: {sort: "z-a", playlist_id: @playlist_id, query: @query} %>
+<div class="search">
+    <%= form_tag songs_path, method: :get do %>
+        <%= hidden_field_tag :playlist_id, @playlist_id %>
+        <%= text_field_tag :query, params[:query], placeholder: "Search by Song" %>
+        <%= submit_tag "Search" %>
+    <% end %>
 </div>
-
-<% @songs.each do |song| %>
-    <p><%= link_to "#{song.title} - #{song.artist.name}", song_path(id: song.id, playlist_id: @playlist_id) %></p>
-<% end %>
+<div class="button sort">
+    <%= button_to "Sort by popularity", sort_songs_path, method: :patch, params: {sort: "popularity", playlist_id: @playlist_id, query: @query} %>
+    <%= button_to "Sort by name (A-Z)", sort_songs_path, method: :patch, params: {sort: "a-z", playlist_id: @playlist_id, query: @query} %>
+    <%= button_to "Sort by name (Z-A)", sort_songs_path, method: :patch, params: {sort: "z-a", playlist_id: @playlist_id, query: @query} %>
+</div>
+<br>
+<br>
+<div class="grid">
+    <% @songs.each do |song| %>
+        <div>
+            <a href= <%="/songs/#{song.id}"%>><img src="<%=song.image%>" alt="<%=song.title%>" style="width:300px;height:300px;"></a>
+            <p><%= link_to "#{song.title}<br>#{song.artist.name}".html_safe, song_path(id: song.id, playlist_id: @playlist_id) %><p>
+            <br>
+        </div>
+    <% end %>
+</div>

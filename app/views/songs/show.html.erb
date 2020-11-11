@@ -1,15 +1,22 @@
 <h1><%= @song.title %></h1>
-<h3>Artist: <%= link_to @song.artist.name, @song.artist %></h3>
-
-<audio controls>
-  <source src="<%=@song.preview%>" type="audio/ogg">
-  Your browser does not support the audio tag.
-</audio>
+<h2><%= link_to @song.artist.name, @song.artist %></h2>
 <br>
-<br>
-<% if @playlist_id %>
-    <%= button_to "Add to Playlist", "/playlists/#{@playlist_id}/songs/#{@song.id}/playlist_songs", method: :post %>
-<% else %>
-    <%= button_to "Add to Playlist", new_song_playlist_song_path(@song.id), method: :get%>
-<% end %>
+<div id="song-show">
+  <div>
+    <img src="<%=@song.image%>" alt="<%=@song.title%>" style="width:300px;height:300px;">
+  </div>
+  <br>
+  <div>
+    <audio controls>
+      <source src="<%=@song.preview%>" type="audio/ogg">
+      Your browser does not support the audio tag.
+    </audio>
+    <br><br>
+    <% if @playlist_id %>
+        <%= button_to "Add to Playlist", "/playlists/#{@playlist_id}/songs/#{@song.id}/playlist_songs", method: :post %>
+    <% else %>
+        <%= button_to "Add to Playlist", new_song_playlist_song_path(@song.id), method: :get%>
+    <% end %>
+  </div>
+</div>
 
