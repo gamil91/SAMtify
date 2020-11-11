@@ -1,14 +1,18 @@
-<h1>Welcome, <%= current_user.name %></h1>
+<div class = "users_show">
+   <div class = "welcome"> <h1>Welcome, <%= current_user.name %>!</h1></div>
 
-<h2>Here are your playlists!</h2>
-
-    <%current_user.playlists.each do |playlist|%>
-    <p class="song_text"><%= link_to playlist.name, playlist %></p>
-    <% end %>
-    
+    <div class = "users_playlists">
+    <h2>Here are your playlists:</h2>
+        <%current_user.playlists.each do |playlist|%>
+        <div><%= link_to playlist.name, playlist %> (<%=pluralize(playlist.songs.length, "song")%>)</div>
+        <% end %>
+    </div>
 
 <br/>
-<div class="button">
-<%= button_to 'Create a New Playlist!', new_playlist_path, method: :get %><br/>
-<%= button_to "Show All Playlists", playlists_path, method: :get %>
+<br/>
+    <div class="button">
+    <%= button_to 'Create a New Playlist!', new_playlist_path, method: :get %><br/>
+    <%= button_to "Show All Playlists", playlists_path, method: :get %>
+    </div>
+    
 </div>
