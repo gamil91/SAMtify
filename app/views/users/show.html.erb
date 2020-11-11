@@ -1,14 +1,14 @@
 <h1>Welcome, <%= current_user.name %></h1>
 
 <h2>Here are your playlists!</h2>
-    <ul>
+
     <%current_user.playlists.each do |playlist|%>
-    <li><%= link_to playlist.name, playlist %></li>
+    <p class="song_text"><%= link_to playlist.name, playlist %></p>
     <% end %>
-    </ul>
+    
 
 <br/>
 <div class="button">
-<%= button_to 'Create a new playlist!', new_playlist_path, method: :get %><br/>
+<%= button_to 'Create a New Playlist!', new_playlist_path, method: :get %><br/>
 <%= button_to "Show All Playlists", playlists_path, method: :get %>
 </div>
