@@ -19,6 +19,6 @@ class ArtistsController < ApplicationController
     def show
         @artist = Artist.find(params[:id])
         @songs = @artist.songs
-        @subscripion = Subscription.find_by(artist:@artist, user:current_user)
+        @subscription = Subscription.find_by(artist:@artist, user:current_user)
     end
 end
