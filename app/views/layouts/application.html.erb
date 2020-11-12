@@ -10,20 +10,25 @@
 
   <body>
     <%# <img src="/images/SAMtify_logo.png"/> %>
-    <div>
-    <%= image_tag 'SAMtify_logo.png', "style"=>"width:300px;height:125px;"%>
-    </div>
-      <ul class="nav">
-      <%if logged_in? %>
-        <li class="nav_select"><%=link_to 'Home', current_user %></li>
-        <li class="nav_select"><%=link_to 'All Artists', artists_path %></li>
-        <li class="nav_select"><%=link_to 'All Songs', songs_path %> </li>
-        <li class="nav_select"><%=link_to "All Playlists", playlists_path %></li>
-        <li class="nav_select"><%=link_to 'Settings', edit_user_path(current_user.id)%></li>
-        <li class="nav_select"><%=link_to 'Log Out', sessions_path, method: :delete%></li>
-      <% end %>
-      </ul>
-
+    <div class = "nav_home">
+      <div class = "nav_logo">
+       <%= form_tag current_user, method: :get do  %>
+                <%= image_submit_tag 'SAMtify_logo.png', "style"=>"width:300px;height:125px;" %>
+            <% end %>
+      
+      </div>
+      
+        <ul class="nav" id="nav_home_bar">
+        <%if logged_in? %>
+          <li class="nav_select"><%=link_to 'Home', current_user %></li>
+          <li class="nav_select"><%=link_to 'All Artists', artists_path %></li>
+          <li class="nav_select"><%=link_to 'All Songs', songs_path %> </li>
+          <li class="nav_select"><%=link_to "All Playlists", playlists_path %></li>
+          <li class="nav_select"><%=link_to 'Settings', edit_user_path(current_user.id)%></li>
+          <li class="nav_select"><%=link_to 'Log Out', sessions_path, method: :delete%></li>
+        <% end %>
+        </ul>
+  </div>
       <% flash.each do |k, v|  %>
         <p class="<%= k %>"><%= v %></p>
       <% end %>

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :playlists
   resources :users, except: [:index]
   resources :favorites, only: [:create, :destroy]
+  resources :subscriptions, only: [:create, :destroy]
 
   get '/signup', to: 'users#new', as: 'signup'
   get '/', to: 'sessions#new', as: 'login'
