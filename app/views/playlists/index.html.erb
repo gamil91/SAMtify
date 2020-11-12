@@ -1,4 +1,17 @@
 <h1> All Playlists </h1>
+
+<div class="search">
+    <%= form_tag playlists_path, method: :get do %>
+        <%= text_field_tag :query, params[:query], placeholder: "Search for playlist" %>
+        <%= submit_tag "Search" %>
+    <% end %>
+</div>
+<div class="button sort">
+    <%= button_to "Sort by popularity", sort_playlists_path, method: :patch, params: {sort: "popularity", query: @query} %>
+    <%= button_to "Sort by name (A-Z)", sort_playlists_path, method: :patch, params: {sort: "a-z", query: @query} %>
+    <%= button_to "Sort by name (Z-A)", sort_playlists_path, method: :patch, params: {sort: "z-a", query: @query} %>
+</div>
+<br>
 <br>
 <table>
     <tr>

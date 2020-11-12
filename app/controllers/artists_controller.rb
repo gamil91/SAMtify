@@ -1,8 +1,9 @@
 class ArtistsController < ApplicationController
 
     def index
-        if params[:query]
-            @artists = Artist.find_by_query(params[:query]) 
+        @query = params[:query]
+        if @query
+            @artists = Artist.find_by_query(@query) 
         else
             @artists = Artist.all
         end
