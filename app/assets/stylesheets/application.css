@@ -172,3 +172,24 @@ th, td{
 .success { 
     color: #3AAFA9;
 }
+
+.nav_home {
+    display:grid;
+    grid-template-columns: 1fr 3fr;
+    text-align: center;
+}
+
+.nav_logo{
+    grid-column: 1;
+}
+
+.nav_logo input[type="image"]{
+    background: none;
+    border: none;
+}
+
+#nav_home_bar{
+    grid-column: 2;
+    justify-self: start;
+    align-self: center;
+}
