@@ -12,9 +12,9 @@ class PlaylistsController < ApplicationController
         if params[:sort] == "popularity"
             @playlists = @playlists.sort_by {|playlist| playlist.favorites.count}.reverse
         elsif params[:sort] == "a-z"
-            @playlists = @playlists.sort_by {|playlist| playlist.name}
+            @playlists = @playlists.sort_by {|playlist| playlist.name.downcase}
         elsif params[:sort] == "z-a"
-            @playlists = @playlists.sort_by {|playlist| playlist.name}.reverse
+            @playlists = @playlists.sort_by {|playlist| playlist.name.downcase}.reverse
         end
 
     end

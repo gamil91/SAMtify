@@ -36,19 +36,6 @@ table{
 }
 
 
-.favorite input[type="submit"]{
-    width: 125px;
-    border-radius: 35px;
-    background-color: #3AAFA9;
-    color: white;
-}
-
-.favorite input[type="submit"]:hover{
-    background-color: #C99B2D;
-    color: white;
-
-}
-
 .new_playlist {
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;

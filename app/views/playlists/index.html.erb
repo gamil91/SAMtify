@@ -1,5 +1,4 @@
 <h1> All Playlists </h1>
-
 <div class="search">
     <%= form_tag playlists_path, method: :get do %>
         <%= text_field_tag :query, params[:query], placeholder: "Search for playlist" %>
@@ -22,7 +21,7 @@
     <% @playlists.each do |p| %>
         <tr class="playlist-text">
             <td><%= link_to p.name, p %></td>
-            <td><%= p.user.username %></td>
+            <td><%= link_to p.user.username, p.user %></td>
             <td class="favorite">
                 <% favorite = current_user.favorites.find {|fav| fav.playlist == p} %>
                 <% if favorite %>
