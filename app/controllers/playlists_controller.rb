@@ -2,8 +2,21 @@ class PlaylistsController < ApplicationController
     before_action :get_playlist, only: [:show, :edit, :update, :destroy]
 
     def index
-        @playlists = Playlist.all
-        
+        @query = params[:query]
+        if @query
+            @playlists = Playlist.find_by_query(@query)
+        else
+            @playlists = Playlist.all
+        end
+
+        if params[:sort] == "popularity"
+            @playlists = @playlists.sort_by {|playlist| playlist.favorites.count}.reverse
+        elsif params[:sort] == "a-z"
+            @playlists = @playlists.sort_by {|playlist| playlist.name}
+        elsif params[:sort] == "z-a"
+            @playlists = @playlists.sort_by {|playlist| playlist.name}.reverse
+        end
+
     end
 
     def show
