@@ -53,7 +53,6 @@
     justify-self: center;
     grid-column: 3/5;
     grid-row: 2;
-    
 }
 
 .user_subscriptions > div {
@@ -62,6 +61,18 @@
 }
 .user_subscriptions > div:nth-child(odd){
     background: #567471;
+}
+
+.user_playlists:hover .userShowLabel{
+    color: white;
+}
+
+.user_favorites:hover .userShowLabel{
+    color: white;
+}
+
+.user_subscriptions:hover .userShowLabel{
+    color: white;
 }
 
 .button {

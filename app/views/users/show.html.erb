@@ -3,7 +3,7 @@
  
 <br><br>
           <div class="user_playlists"> 
-           <h2>My Playlists</h2>
+           <h2 class="userShowLabel">My Playlists</h2>
             <% current_user.playlists.each do |playlist| %>
                 <div class="playlist-text"><%= link_to playlist.name, playlist %></div>
             <% end %>
@@ -11,7 +11,7 @@
             
             <br>
             <div class="user_favorites"> 
-            <h2>My Favorites</h2>
+            <h2 class="userShowLabel">My Favorites</h2>
             <% current_user.favorites.each do |favorite| %>
                 <div class="playlist-text"><%= link_to favorite.playlist.name, favorite.playlist %></div>
             <% end %>
@@ -19,7 +19,7 @@
             <br>
        
             <div class="user_subscriptions">
-            <h2>Subscriptions</h2>
+            <h2 class="userShowLabel">Subscriptions</h2>
             <% current_user.subscriptions.each do |sub| %>
                 <div class="playlist-text"><%= link_to sub.artist.name, artist_path(sub.artist) %></div>
             <% end %>
