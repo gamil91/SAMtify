@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   delete '/sessions', to: 'sessions#destroy' 
   patch '/songs', to: 'songs#index', as: 'sort_songs'
   patch '/artists', to: 'artists#index', as: 'sort_artists'
+  get '/about', to: 'sessions#about', as: 'about'
 
   resources :songs do
     resources :playlist_songs, shallow: true

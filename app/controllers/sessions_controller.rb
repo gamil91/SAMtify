@@ -24,6 +24,9 @@ class SessionsController < ApplicationController
         redirect_to login_path
     end
 
+    def about
+    end
+
     private
 
     def require_log_out
