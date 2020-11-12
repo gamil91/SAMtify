@@ -1,5 +1,6 @@
 <h1><%= @artist.name %></h1>
-<br>
+<h5><%=pluralize(@artist.subscriptions.length, "subscriber")%></h5>
+
 <div id="artist-show">
     <img src="<%=@artist.image%>" alt="<%=@artist.name%>" style="width:300px;height:300px;">
     <br><br>
