@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
-  resources :favorites
-  resources :playlist_songs
-  resources :songs
-  resources :artists
+  resources :playlist_songs, only: [:new, :create, :destroy]
+  resources :songs, only: [:index, :show]
+  resources :artists, only: [:index, :show]
   resources :playlists
-  resources :users
-  resources :favorites, only: [:create, :delete]
+  resources :users, except: [:index]
+  resources :favorites, only: [:create, :destroy]
 
   get '/signup', to: 'users#new', as: 'signup'
   get '/', to: 'sessions#new', as: 'login'
@@ -14,13 +13,13 @@ Rails.application.routes.draw do
   patch '/songs', to: 'songs#index', as: 'sort_songs'
   patch '/artists', to: 'artists#index', as: 'sort_artists'
 
-  resources :songs do
-    resources :playlist_songs, shallow: true
+  resources :songs, only: [:show] do
+    resources :playlist_songs, only: [:new, :create]
   end
 
-  resources :playlists do
-    resources :songs do
-      resources :playlist_songs, shallow: true
+  resources :playlists, only: [:show] do
+    resources :songs, only: [:show] do
+      resources :playlist_songs, only: [:create]
     end
   end
 
