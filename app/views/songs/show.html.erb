@@ -12,10 +12,12 @@
       Your browser does not support the audio tag.
     </audio>
     <br><br>
-    <% if @playlist_id %>
-        <%= button_to "Add to Playlist", "/playlists/#{@playlist_id}/songs/#{@song.id}/playlist_songs", method: :post %>
-    <% else %>
-        <%= button_to "Add to Playlist", new_song_playlist_song_path(@song.id), method: :get%>
+    <% if current_user.playlists.count != 0 %>
+      <% if @playlist_id %>
+          <%= button_to "Add to Playlist", "/playlists/#{@playlist_id}/songs/#{@song.id}/playlist_songs", method: :post %>
+      <% else %>
+          <%= button_to "Add to Playlist", new_song_playlist_song_path(@song.id), method: :get%>
+      <% end %>
     <% end %>
   </div>
 </div>
