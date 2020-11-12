@@ -9,4 +9,9 @@
         <p><%= link_to song.title, song %></p>
     <% end %>
     <!--</div>-->
+         <% if @subscription %>
+            <%= button_to "Unsubscribe", @subscription, method: :delete %>
+       <% else %>   
+            <%= button_to "Subscribe", subscriptions_path, method: :post, params: {artist_id: @artist.id} %>
+        <% end %>
 </div>
