@@ -1,28 +1,43 @@
-
-<h1>Welcome, <%= current_user.name %>!</h1>
-
+<div class="grid">
+<div class="welcome"><h1>Welcome, <%= current_user.name %>!</h1></div>
+ 
 <br><br>
-<div id="user-playlists">
-    <div>
-        <h2>My Playlists</h2>
-        <% current_user.playlists.each do |playlist| %>
-            <div class="playlist-text"><%= link_to playlist.name, playlist %></div>
-        <% end %>
-        <br>
-    </div>
-    <div>
-        <h2>Favorites</h2>
-        <% current_user.favorites.each do |favorite| %>
-            <div class="playlist-text"><%= link_to favorite.playlist.name, favorite.playlist %></div>
-        <% end %>
-        <br>
-    </div>
+          <div class="user_playlists"> 
+           <h2>My Playlists</h2>
+            <% current_user.playlists.each do |playlist| %>
+                <div class="playlist-text"><%= link_to playlist.name, playlist %></div>
+            <% end %>
+            </div>
+            
+            <br>
+            <div class="user_favorites"> 
+            <h2>My Favorites</h2>
+            <% current_user.favorites.each do |favorite| %>
+                <div class="playlist-text"><%= link_to favorite.playlist.name, favorite.playlist %></div>
+            <% end %>
+            </div>
+            <br>
+       
+            <div class="user_subscriptions">
+            <h2>Subscriptions</h2>
+            <% current_user.subscriptions.each do |sub| %>
+                <div class="playlist-text"><%= link_to sub.artist.name, artist_path(sub.artist) %></div>
+            <% end %>
+            </div>
+            <br>
+        
 
     <div class="button">
         <%= button_to 'Create a New Playlist', new_playlist_path, method: :get %><br/>
     </div>
-    <div class="button">
-        <%= button_to "Show All Playlists", playlists_path, method: :get %>
+    <div class="button" id="b1">
+        <%= button_to 'View All Playlists', playlists_path, method: :get %><br/>
     </div>
+    <div class="button" id="b2">
+        <%= button_to 'View All Artists', artists_path, method: :get %><br/>
+    </div>
+    
+   
+
 
 </div>

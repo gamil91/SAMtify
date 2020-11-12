@@ -9,6 +9,10 @@
   </head>
 
   <body>
+    <%# <img src="/images/SAMtify_logo.png"/> %>
+    <div>
+    <%= image_tag 'SAMtify_logo.png', "style"=>"width:300px;height:125px;"%>
+    </div>
       <ul class="nav">
       <%if logged_in? %>
         <li class="nav_select"><%=link_to 'Home', current_user %></li>

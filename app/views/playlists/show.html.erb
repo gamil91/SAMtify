@@ -1,37 +1,38 @@
 
 <div class="playlist_show">
-<div class="playlist_title"><h1><%= @playlist.name %></h1></div>
+    <div class="playlist_title">
+    <h1><%= @playlist.name %></h1>
+    <h5>By <%= @playlist.user.name %></h5>
+    </div>
 
-<h2>Songs: <%= @songs.count %></h2>
+    <h2>Songs: <%= @songs.count %></h2>
 
-<table class="song_text">
-<tr>
-    <th> Song </th>
-    <th> Artist </th>
-    <th> Play </th>
-    <th>Songs: <%= @songs.count %> </th>
-</tr>
-    <% @songs.each do |song| %> 
- <tr>
-        <td><%= link_to song.title, song %></td>
-        <td><%= song.artist.name %></td>
-        <td><audio controls id="audio" >
-        <source src="<%=song.preview%>" type="audio/ogg">
-        Your browser does not support the audio tag.
-        </audio></td>
-        <td><% if @playlist.user == current_user %>
-
-            <%= link_to "Delete", PlaylistSong.find_by(song_id: song.id), method: :delete %>
-        <% end %></td>
+    <table class="song_text">
+    <tr>
+        <th> Song </th>
+        <th> Artist </th>
+        <th> Play </th>
+        <th> </th>
     </tr>
-<% end %>
-</table>
-<br>
-<div class="button plbutton">
-<% if @playlist.user == current_user %>
-    <%= button_to "Add Songs", songs_path, method: :get, params: {playlist_id: @playlist.id} %><br>
-    <%= button_to "Edit Playlist", edit_playlist_path(@playlist), method: :get %>
-<% end %>
+        <% @songs.each do |song| %> 
+    <tr>
+            <td><%= link_to song.title, song %></td>
+            <td><%= song.artist.name %></td>
+            <td><audio controls id="audio" >
+            <source src="<%=song.preview%>" type="audio/ogg">
+            Your browser does not support the audio tag.
+            </audio></td>
+            <td><% if @playlist.user == current_user %>
+                <%= link_to "Delete", PlaylistSong.find_by(song_id: song.id), method: :delete %>
+                <% end %></td>
+    </tr>
+        <% end %>
+    </table>
 </div>
-
-</div>
+<br/>
+    <div class="button">
+    <% if @playlist.user == current_user %>
+        <%= button_to "Add Songs", songs_path, method: :get, params: {playlist_id: @playlist.id} %><br>
+        <%= button_to "Edit Playlist", edit_playlist_path(@playlist), method: :get %>
+    <% end %>
+    </div>
