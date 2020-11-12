@@ -35,9 +35,6 @@ table{
     grid-column: 2/3;
 }
 
-.plbutton {
-    grid-row: 1;
-}
 
 .favorite input[type="submit"]{
     width: 125px;
@@ -50,4 +47,21 @@ table{
     background-color: #C99B2D;
     color: white;
 
+}
+
+.new_playlist {
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.new_playlist_form{
+    justify-items: center;
+    align-self: center;
+    grid-column: 2;
+    grid-row:2;
+    background: #17252a;
+    padding: 1.5em;
+    border-radius: 15px;
+    text-align:center;
+   
 }

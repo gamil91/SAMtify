@@ -6,10 +6,11 @@
     display:grid;
     grid-template-columns: 1fr 2fr 1fr;
     
+    
 }
 
 .greeting {
-    grid-column: 2/3;
+    grid-column: 1/4;
     grid-row:1;
 }
 
@@ -19,5 +20,10 @@
     background: #17252a;
     padding: 1em;
     border-radius: 15px;
+    
+   
 }
 
+.login_submit{
+
+}
