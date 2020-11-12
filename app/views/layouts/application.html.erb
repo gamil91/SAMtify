@@ -10,6 +10,7 @@
 
   <body>
     <%# <img src="/images/SAMtify_logo.png"/> %>
+
     <div class = "nav_home">
       <div class = "nav_logo">
        <%= form_tag current_user, method: :get do  %>
@@ -29,6 +30,7 @@
         <% end %>
         </ul>
   </div>
+
       <% flash.each do |k, v|  %>
         <p class="<%= k %>"><%= v %></p>
       <% end %>
