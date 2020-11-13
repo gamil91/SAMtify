@@ -3,16 +3,17 @@
 <% @song = Song.find(params[:song_id]) %>
 <% @playlists = Playlist.select{|ps| ps.user == current_user} %>
 -->
-
-<p>Song: <%= @song.title %></p>
-<%= form_for @playlist_song, :url => { :action => "create" } do |f| %>
-    <% if @playlist_song.errors.any? %>
-        <% @playlist_song.errors.full_messages.each do |msg| %>
-            <p><%= msg %></p>
+<div id="playlistDropdown">
+    <p>Song: <%= @song.title %></p>
+    <%= form_for @playlist_song, :url => { :action => "create" } do |f| %>
+        <% if @playlist_song.errors.any? %>
+            <% @playlist_song.errors.full_messages.each do |msg| %>
+                <p><%= msg %></p>
+            <% end %>
         <% end %>
+        <%= f.hidden_field :song_id %>
+        <%= f.label :playlist %>
+        <%= f.collection_select :playlist_id, @playlists, :id, :name %>
+        <%= f.submit "Add" %>
     <% end %>
-    <%= f.hidden_field :song_id %>
-    <%= f.label :playlist %>
-    <%= f.collection_select :playlist_id, @playlists, :id, :name %>
-    <%= f.submit "Add" %>
-<% end %>
+</div>
