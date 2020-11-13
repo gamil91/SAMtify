@@ -17,7 +17,7 @@ We built this application to have a better understanding of building an applicat
 ![Playlist Index Page](https://github.com/gamil91/SAMtify/blob/main/app/assets/images/playlists_index.png)
 
 ## Playlist Show Page
-![Playlist Show Page](https://github.com/gamil91/SAMtify/blob/main/app/assets/images/playlist_show.png)
+![Playlist Show Page](https://github.com/gamil91/SAMtify/blob/main/app/assets/images/playlist_show1.png)
 
 ## Technology Used
 - Ruby on Rails
