@@ -21,6 +21,7 @@ class PlaylistsController < ApplicationController
 
     def show
         @songs = @playlist.playlist_songs.map {|ps| ps.song }    
+        @favorite = Favorite.find_by(playlist_id: params[:id], user_id: current_user.id)
     end
     
     def new

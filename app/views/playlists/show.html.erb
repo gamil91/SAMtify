@@ -2,8 +2,17 @@
 <div class="playlist_show">
     <div class="playlist_title">
     <h1><%= @playlist.name %></h1>
-    <h5>By <%= link_to @playlist.user.name, @playlist.user %></h5>
     <h5>
+        <div class="toggle">
+            <% if @favorite %>
+                <%= button_to "Unfavorite", @favorite, method: :delete, params: {toggle: true}, "class" => "subBtn" %>
+            <% else %>   
+                <%= button_to "Favorite", favorites_path, method: :post, params: {toggle: true, playlist_id: @playlist.id}, "class" => "subBtn" %>
+            <% end %> 
+        </div>
+
+        By <%= link_to @playlist.user.name, @playlist.user %>
+        <br><br>
         Songs: <%= @songs.count %>
         <br>
         Favorites: <%= @playlist.favorites.count %>
