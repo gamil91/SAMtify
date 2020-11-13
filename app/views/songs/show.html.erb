@@ -14,7 +14,7 @@
     <br><br>
     <% if current_user.playlists.count != 0 %>
       <% if @playlist_id %>
-          <%= button_to "Add to Playlist", "/playlists/#{@playlist_id}/songs/#{@song.id}/playlist_songs", method: :post %>
+          <%= button_to "Add to Playlist", playlist_song_playlist_songs_path(playlist_id: @playlist_id, song_id: @song.id), method: :post %>
       <% else %>
           <%= button_to "Add to Playlist", new_song_playlist_song_path(@song.id), method: :get%>
       <% end %>

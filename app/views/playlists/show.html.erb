@@ -28,7 +28,7 @@
             Your browser does not support the audio tag.
             </audio></td>
             <td><% if @playlist.user == current_user %>
-                <%= link_to "Delete", PlaylistSong.find_by(song_id: song.id), method: :delete %>
+                <%= link_to "Delete", PlaylistSong.find_by(song_id: song.id, playlist_id: @playlist.id), method: :delete %>
                 <% end %></td>
     </tr>
         <% end %>

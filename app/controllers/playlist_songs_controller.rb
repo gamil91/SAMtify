@@ -22,6 +22,7 @@ class PlaylistSongsController < ApplicationController
                 render :new
             end
         end
+
     end
 
     def destroy
@@ -46,6 +47,7 @@ class PlaylistSongsController < ApplicationController
 
     def is_authorized?
         @playlist_song.playlist.user == current_user
+        
     end
 
     def not_authorized
