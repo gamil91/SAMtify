@@ -1,25 +1,30 @@
-**SAMtify** 
+# SAMtify 
 
 Welcome to the SAMtify application, created by Steve, Alex, and Marisa (SAM). You can use this application to create custom playlists using our music library. You have the ability to browse the library through artists, songs, and other users' playlists. You also have the ability to favorite your own or other users' playlists. Lastly, you have the ability to the subscribe to your favorite artists!
 
-##Motivation
+## Motivation
 We built this application to have a better understanding of building an application from scratch and practicing building Rails model relationships. We utilized Rails generators, seeded data from the Spotify API, and attempted to create an application with a friendly user experience. 
 
-##Screenshots
+## Screenshots
 
-Home Page(User Show Page)
+## Home Page(User Show Page)
 ![Home Page](https://github.com/gamil91/SAMtify/blob/main/app/assets/images/home.png)
 
-Artists Page
+## Artists Page
+![Artists](https://github.com/gamil91/SAMtify/blob/main/app/assets/images/artists_index.png)
 
-Songs Page
+## Playlist Index Page
+![Playlist Index Page](https://github.com/gamil91/SAMtify/blob/main/app/assets/images/playlists_index.png)
 
-##Technology Used
+## Playlist Show Page
+![Playlist Show Page](https://github.com/gamil91/SAMtify/blob/main/app/assets/images/playlist_show.png)
+
+## Technology Used
 - Ruby on Rails
 - CSS
 - HTML
 
-##Features
+## Features
 - Create, access, edit, and delete your user account
 - Create, access, edit, and delete your own playlists
 - Add and delete songs to/from your playlists
@@ -30,18 +35,18 @@ Songs Page
 - An About page to tell you about the application and its' developers
 - Error messages when inputs are invalid
 
-##Highlights
+## Highlights
 - Add songs from a playlist show page without using a form
 - Using the logo to direct the user back to the home page
 - Search for songs, artists, and playlists
 - Sort songs, artists, and playlists by popularity or name
 - Listen to song previews
 
-##Installation
+## Installation
 - Run bundle install
 - Run rails db:migrate
 - Run rails db:seed
 - rails s to begin the server
 
-##How to Use
+## How to Use
 Sign up for an account and log in to use the application. Please feel free to explore our music library through the navigation bar at the top of the screen. You will have the freedom to create and add songs to your own custom playlists. Enjoy!
