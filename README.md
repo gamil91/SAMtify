@@ -8,7 +8,7 @@ We built this application to have a better understanding of building an applicat
 ##Screenshots
 
 Home Page(User Show Page)
-![Home Page](https://github.com/gamil91/SAMtify/blob/main/apps/assets/images/steve.png)
+![Home Page](https://github.com/gamil91/SAMtify/blob/main/app/assets/images/home.png)
 
 Artists Page
 
