@@ -13,7 +13,6 @@ table{
     text-align: center;
 }
 
-
 #audio{
     width:100px;
     height: 20px;
@@ -35,7 +34,6 @@ table{
     grid-column: 2/3;
 }
 
-
 .new_playlist {
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -50,5 +48,4 @@ table{
     padding: 1.5em;
     border-radius: 15px;
     text-align:center;
-   
 }

@@ -20,7 +20,7 @@
             <%= form_tag artist_path(artist), method: :get do  %>
                 <%= image_submit_tag artist.image %>
             <% end %>
-            <p><%= link_to artist.name, artist %></p>
+            <p class="artistName"><%= link_to artist.name, artist %></p>
             <br>
         </div>
     <% end %>

@@ -23,8 +23,6 @@
     justify-self: center;
     grid-column: 1/3;
     grid-row: 2;
-    
-    
 }
 
 .user_playlists > div {
@@ -64,15 +62,15 @@
 }
 
 .user_playlists:hover .userShowLabel{
-    color: white;
+    color: #DEF2F1;
 }
 
 .user_favorites:hover .userShowLabel{
-    color: white;
+    color: #DEF2F1;
 }
 
 .user_subscriptions:hover .userShowLabel{
-    color: white;
+    color: #DEF2F1;
 }
 
 .button {
@@ -104,12 +102,6 @@
     padding: 1.5em;
     border-radius: 15px;
 }
-/*
-.login_edit{
-    grid-column: 1/3;
-    grid-row: 4;
-    justify-self: center;
-}*/
 
 .viewPlaylists {
     grid-column: 2/4;
