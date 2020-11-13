@@ -1,4 +1,4 @@
-#SAMtify 
+**SAMtify** 
 
 Welcome to the SAMtify application, created by Steve, Alex, and Marisa (SAM). You can use this application to create custom playlists using our music library. You have the ability to browse the library through artists, songs, and other users' playlists. You also have the ability to favorite your own or other users' playlists. Lastly, you have the ability to the subscribe to your favorite artists!
 
