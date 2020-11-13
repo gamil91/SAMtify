@@ -37,6 +37,12 @@ table{
 .new_playlist {
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+}
+
+#new_playlist {
+    display: inline-block;
+    text-align: center;
 }
 
 .new_playlist_form{
@@ -47,5 +53,4 @@ table{
     background: #17252a;
     padding: 1.5em;
     border-radius: 15px;
-    text-align:center;
 }
