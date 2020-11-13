@@ -10,9 +10,9 @@
         
       <%= f.submit %>
     <% end %><br/>
- <% if current_user.playlists.include?(playlist)%>
- <%= button_to "Delete Playlist", playlist_path(playlist), method: :delete, data: {confirm: "Are you sure you want to delete this playlist?"} %>
- <%end%>
+    <% if current_user.playlists.include?(playlist)%>
+        <%= button_to "Delete Playlist", playlist_path(playlist), method: :delete, data: {confirm: "Are you sure you want to delete this playlist?"} %>
+    <%end%>
     </div>
 
 </div>
