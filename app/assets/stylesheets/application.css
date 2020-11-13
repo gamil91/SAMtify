@@ -37,6 +37,8 @@ h2{
 
 h5 {
     text-align: center;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 /* grids */
@@ -77,11 +79,36 @@ a:hover{
     padding-top: 10px;
     padding-bottom: 10px ;
     background-color: #3AAFA9;
+    font-size: 17px;
 }
 
 .nav_select{
     display: inline;
     padding: 20px;
+}
+
+.nav_home {
+    display:grid;
+    grid-template-columns: 1fr 3fr;
+    text-align: center;
+}
+
+.nav_logo{
+    grid-column: 1;
+    justify-self: end;
+}
+
+.nav_logo input[type="image"]{
+    background: none;
+    border: none;
+}
+
+#nav_home_bar{
+    grid-column: 2;
+    justify-self: stretch;
+    align-self: center;
+    margin-right: 200px;
+    border-radius: 35px;
 }
 
 /* display song names */
@@ -94,7 +121,7 @@ a:hover{
     font-size: 25px; 
 }
 
-/* all forms and buttons */
+/* all forms and general buttons */
 form input{
     padding: 15px;
     color: #3AAFA9;
@@ -111,21 +138,6 @@ form input[type="submit"]{
 form input:hover[type="submit"]{
     color: #C99B2D;
 }
-
-/*
-form input[type="password"]{
-    padding: 20px;
-    color: #3AAFA9;
-    font-weight: bold;
-    font-size: large;
-    background: #DEF2F1;
-}
-
-form input[type="text"]{
-    padding: 20px;
-    font-size: large;
-}
-*/
 
 /* center buttons */
 .button{
@@ -174,38 +186,15 @@ th, td{
     color: #3AAFA9;
 }
 
-.nav_home {
-    display:grid;
-    grid-template-columns: 1fr 3fr;
-    text-align: center;
-}
-
-.nav_logo{
-    grid-column: 1;
-    justify-self: end;
-}
-
-.nav_logo input[type="image"]{
-    background: none;
-    border: none;
-}
-
-#nav_home_bar{
-    grid-column: 2;
-    justify-self: stretch;
-    align-self: center;
-    margin-right: 200px;
-    border-radius: 35px;
-}
-
-.favorite input[type="submit"]{
+/* toggle buttons */
+.toggle input[type="submit"]{
     width: 150px;
     border-radius: 35px;
     background-color: #3AAFA9;
     color: #DEF2F1;
 }
 
-.favorite input[type="submit"]:hover{
+.toggle input[type="submit"]:hover{
     background-color: #C99B2D;
     color: #DEF2F1;
 }

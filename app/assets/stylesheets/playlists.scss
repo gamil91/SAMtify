@@ -13,11 +13,6 @@ table{
     text-align: center;
 }
 
-#audio{
-    width:100px;
-    height: 20px;
-}
-
 .playlist_show{
     display:grid;
     grid-template-columns: 1fr 2fr 1fr;
@@ -37,6 +32,12 @@ table{
 .new_playlist {
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+}
+
+#new_playlist {
+    display: inline-block;
+    text-align: center;
 }
 
 .new_playlist_form{

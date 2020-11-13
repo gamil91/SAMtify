@@ -22,7 +22,7 @@
         <tr class="playlist-text">
             <td><%= link_to p.name, p %></td>
             <td><%= link_to p.user.username, p.user %></td>
-            <td class="favorite">
+            <td class="toggle">
                 <% favorite = current_user.favorites.find {|fav| fav.playlist == p} %>
                 <% if favorite %>
                     <%= button_to "Unfavorite", favorite, method: :delete %>

@@ -1,6 +1,6 @@
 <h1><%= @artist.name %></h1>
 <div id="artist-show">
-    <div class="favorite">
+    <div class="toggle">
         <% if @subscription %>
             <%= button_to "Unsubscribe", @subscription, method: :delete, "class" => "subBtn" %>
         <% else %>   
