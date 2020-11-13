@@ -9,7 +9,7 @@ class ArtistsController < ApplicationController
         end
 
         if params[:sort] == "popularity"
-            @artists = @artists.sort_by {|artist| artist.num_playlists}.reverse
+            @artists = @artists.sort_by {|artist| artist.subscriptions.length}.reverse
         elsif params[:sort] == "a-z"
             @artists = @artists.sort_by {|artist| artist.name}
         elsif params[:sort] == "z-a"
