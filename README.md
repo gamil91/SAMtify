@@ -50,3 +50,6 @@ We built this application to have a better understanding of building an applicat
 
 ## How to Use
 Sign up for an account and log in to use the application. Please feel free to explore our music library through the navigation bar at the top of the screen. You will have the freedom to create and add songs to your own custom playlists. Enjoy!
+
+## Video Demo
+https://youtu.be/Yh0P6Iz1Acc
